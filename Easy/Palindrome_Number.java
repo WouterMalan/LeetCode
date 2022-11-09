@@ -32,9 +32,9 @@ public class Palindrome_Number {
     }
 
     public boolean isPalindrome3(int x) {
-       String left = String.valueOf(x);
-       String right = new StringBuilder(left).reverse().toString();
-         return left.equals(right);
+      String s = String.valueOf(x);
+      String reverse = new StringBuilder(s).reverse().toString();
+        return s.equals(reverse);
     }
             
         }
