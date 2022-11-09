@@ -13,4 +13,31 @@ public class Palindrome_Number {
         }
         return (x == rev || x == rev/10);
     }
-}
+
+    public boolean isPalindrome2(int x) {
+        if(x < 0){
+            return false;
+        }
+        String s = String.valueOf(x);
+        int i = 0;
+        int j = s.length() - 1;
+        while(i < j){
+            if(s.charAt(i) != s.charAt(j)){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
+    public boolean isPalindrome3(int x) {
+       String left = String.valueOf(x);
+       String right = new StringBuilder(left).reverse().toString();
+         return left.equals(right);
+    }
+            
+        }
+
+    
+
