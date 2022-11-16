@@ -37,19 +37,36 @@ public class Longest_common_prefix {
     }
 
     public String longestCommonPrefix3(String[] strs) {
-        String result = "";
-        if(strs.length == 0){
-            return result;
-        }
-       else{
-        result = strs[0];
+        if(strs.length==0) return "";
+
+        int length = strs[0].length();
+
         for (int i = 1; i < strs.length; i++) {
-            while (strs[i].indexOf(result) !=0) {
-                result = result.substring(0, result.length() - 1);
+            length = Math.min(length, strs[i].length());
+
+            for (int j = 0; j < length; j++) {
+                char c = strs[0].charAt(j);
+                char d = strs[i].charAt(j);
+
+                if(c != d){
+                    length = j;
+                    break;
+                }
             }
         }
-       }
-        return result;
+        return strs[0].substring(0, length);
+    }
+
+    public String longestCommonPrefix4(String[] strs) {
+        if(strs.length==0) return "";
+        String prefix = strs[0];
+
+        for (int i = 1; i < strs.length; i++) {
+            while (strs[i].indexOf(prefix )!= 0) {
+                prefix = prefix.substring(0, prefix.length()-1);
+            }
+        }
+        return prefix;
     }
 
   
